@@ -1,0 +1,665 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BF1ClientAPI</name>
+    </assembly>
+    <members>
+        <member name="F:BF1ClientAPI.Client.KitDB.AllKitInfo">
+            <summary>
+                兵种数据
+            </summary>
+        </member>
+        <member name="F:BF1ClientAPI.Client.MapDB.AllMapInfo">
+            <summary>
+                地图数据
+            </summary>
+        </member>
+        <member name="F:BF1ClientAPI.Client.ModeDB.AllModeInfo">
+            <summary>
+                地图模式数据
+            </summary>
+        </member>
+        <member name="F:BF1ClientAPI.Client.VehicleDB.AllVehicleInfo">
+            <summary>
+                全部载具信息
+            </summary>
+        </member>
+        <member name="F:BF1ClientAPI.Client.WeaponDB.AllWeaponInfo">
+            <summary>
+                全部武器信息
+            </summary>
+        </member>
+        <member name="T:BF1ClientAPI.Controllers.GameController">
+            <summary>
+                游戏
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.GameController.GetChatStatus">
+            <summary>
+                获取游戏聊天状态
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取游戏聊天相关数据
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.GameController.GetGameStatus">
+            <summary>
+                获取游戏状态信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1游戏状态相关数据
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.GameController.GetDxRenderData">
+            <summary>
+                获取游戏渲染信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1游戏渲染相关数据
+            </remarks>
+        </member>
+        <member name="T:BF1ClientAPI.Controllers.PlayerController">
+            <summary>
+                玩家
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.PlayerController.GetLocalPlayer">
+            <summary>
+                获取自己信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1玩家自己的相关数据
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.PlayerController.GetAllPlayerList">
+            <summary>
+                获取游戏内玩家列表信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1当前进入服务器全部玩家数据
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.PlayerController.GetTeam0PlayerList">
+            <summary>
+                获取游戏内队伍0玩家列表信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1当前进入服务器队伍1中玩家数据（观战和载入中）
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.PlayerController.GetTeam1PlayerList">
+            <summary>
+                获取游戏内队伍1玩家列表信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1当前进入服务器队伍1中玩家数据（已按照得分顺序排序）
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.PlayerController.GetTeam2PlayerList">
+            <summary>
+                获取游戏内队伍2玩家列表信息
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1当前进入服务器队伍2中玩家数据（已按照得分顺序排序）
+            </remarks>
+        </member>
+        <member name="T:BF1ClientAPI.Controllers.ServerController">
+            <summary>
+                服务器
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Controllers.ServerController.GetServerData">
+            <summary>
+                获取当前服务器数据
+            </summary>
+            <returns></returns>
+            <remarks>
+                获取战地1当前进入服务器的服务器相关数据
+
+                征服模式可以获取服务器时间和得分信息，由于是弱指针，有较低概率获取失败
+            </remarks>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Game.IsChatManagerValid">
+            <summary>
+                获取聊天管理指针是否有效
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Game.GetGameStatus">
+            <summary>
+                获取游戏状态
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Game.GetDxRenderData">
+            <summary>
+                获取游戏渲染信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="F:BF1ClientAPI.Core.Player.MaxPlayer">
+            <summary>
+                服务器最大玩家数量
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Player.GetLocalPlayer">
+            <summary>
+                获取自己信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Player.GetAllPlayerList">
+            <summary>
+                获取游戏内全部玩家列表信息
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Player.GetTeamPlayerList(BF1ClientAPI.Enums.TeamId)">
+            <summary>
+                获取战地1当前进入服务器队伍0/1/2中玩家数据，已按照得分顺序排序
+            </summary>
+            <param name="teamId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetServerName">
+            <summary>
+                获取服务器名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetGameId">
+            <summary>
+                获取服务器数字Id
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetMapName">
+            <summary>
+                获取服务器地图名称
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetGameMode">
+            <summary>
+                获取服务器游戏模式
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetServerTime">
+            <summary>
+                获取服务器时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetScorePointer">
+            <summary>
+                获取服务器分数指针
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Core.Server.GetServerScore">
+            <summary>
+                获取服务器队伍分数数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.FileHelper.ExtractResFile(System.String,System.String)">
+            <summary>
+                从资源文件中抽取资源文件
+            </summary>
+            <param name="resFileName">资源文件路径</param>
+            <param name="outputFile">输出文件</param>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.FileHelper.IsOccupied(System.String)">
+            <summary>
+                判断文件是否被占用
+            </summary>
+            <param name="filePath"></param>
+            <returns></returns>
+        </member>
+        <member name="F:BF1ClientAPI.Helpers.IniHelper.IniPath">
+            <summary>
+                默认配置文件路径
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.IniHelper.ReadValue(System.String,System.String,System.String)">
+            <summary>
+                读取节点值
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="intPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.IniHelper.ReadValue(System.String,System.String)">
+            <summary>
+                读取节点值
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.IniHelper.WriteValue(System.String,System.String,System.String,System.String)">
+            <summary>
+                写入节点值
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="intPath"></param>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.IniHelper.WriteValue(System.String,System.String,System.String)">
+            <summary>
+                写入节点值
+            </summary>
+            <param name="section"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.JsonHelper.JsonDeserialize``1(System.String)">
+            <summary>
+                反序列化，将json字符串转换成json类
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.JsonHelper.JsonSerialize``1(``0)">
+            <summary>
+                序列化，将json类转换成json字符串
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="jsonClass"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.MsgBoxHelper.Information(System.String,System.String)">
+            <summary>
+                通用信息弹窗，Information
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.MsgBoxHelper.Warning(System.String,System.String)">
+            <summary>
+                通用警告弹窗，Warning
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.MsgBoxHelper.Error(System.String,System.String)">
+            <summary>
+                通用错误弹窗，Error
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.MsgBoxHelper.Exception(System.Exception,System.String)">
+            <summary>
+                通用异常弹窗，Exception
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.ProcessHelper.IsBF1Run">
+            <summary>
+                判断战地1程序是否运行
+            </summary>
+            <returns>正在运行返回true，未运行返回false</returns>
+        </member>
+        <member name="M:BF1ClientAPI.Helpers.ProcessHelper.OpenLink(System.String)">
+            <summary>
+                打开http链接
+            </summary>
+            <param name="url"></param>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.AutoInitBF1Thread">
+            <summary>
+                自动初始化内存模块线程
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.RunWebApiServerThread">
+            <summary>
+                运行HTTP WebAPI服务器线程
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.TimerUpdate_Elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+                定时更新UI线程
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.TimerNoAFK_Elapsed(System.Object,System.Timers.ElapsedEventArgs)">
+            <summary>
+                挂机防踢线程
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="F:BF1ClientAPI.MainForm.components">
+            <summary>
+                Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.Dispose(System.Boolean)">
+            <summary>
+                Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BF1ClientAPI.MainForm.InitializeComponent">
+            <summary>
+                Required method for Designer support - do not modify
+                the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Native.Memory.Bf1Process">
+            <summary>
+                战地1进程类
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Native.Memory.Bf1ProId">
+            <summary>
+                战地1进程Id
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Native.Memory.Bf1ProBaseAddress">
+            <summary>
+                战地1主模块基地址
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Native.Memory.Bf1ProHandle">
+            <summary>
+                战地1进程句柄
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.Initialize">
+            <summary>
+                初始化内存模块
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.UnInitialize">
+            <summary>
+                释放内存模块
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.IsInitSuccess">
+            <summary>
+                战地1内存模块是否初始化成功
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.Read``1(System.Int64)">
+            <summary>
+                泛型读取内存
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.ReadString(System.Int64,System.Int32)">
+            <summary>
+                读取字符串
+            </summary>
+            <param name="address"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.IsValid(System.Int64)">
+            <summary>
+                判断内存地址是否有效
+            </summary>
+            <param name="Address"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Memory.ByteArrayToStructure``1(System.Byte[])">
+            <summary>
+                字符数组转结构
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="bytes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Obfuscation.GetLocalPlayer">
+            <summary>
+                读取自己指针
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Obfuscation.GetPlayerById(System.Int32)">
+            <summary>
+                读其他玩家指针
+            </summary>
+            <param name="id">玩家ID</param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Obfuscation.EncryptedPlayerMgr(System.Int32,System.Int32)">
+            <summary>
+                解密玩家指针
+            </summary>
+            <param name="offset">自己 0xF0 玩家 0xF8</param>
+            <param name="id">如果是自己，则id=0</param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Native.Obfuscation.EncryptedPlayerMgr_GetPlayer(System.Int64,System.Int32)">
+            <summary>
+                解密玩家指针
+            </summary>
+            <param name="encryptedPlayerMgr">玩家指针</param>
+            <param name="id">玩家ID</param>
+            <returns></returns>
+        </member>
+        <member name="F:BF1ClientAPI.Program.mutex">
+            <summary>
+                单文件互斥体
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Program.Main">
+            <summary>
+                应用程序的主要入口点
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetKitInfo(System.String)">
+            <summary>
+                获取兵种信息
+            </summary>
+            <param name="kit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetMapInfo(System.String)">
+            <summary>
+                获取地图信息
+            </summary>
+            <param name="map"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetModeInfo(System.String)">
+            <summary>
+                获取模式信息
+            </summary>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetVehicleInfo(System.String)">
+            <summary>
+                获取载具信息
+            </summary>
+            <param name="vehicle"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetWeaponInfo(System.String)">
+            <summary>
+                获取武器信息
+            </summary>
+            <param name="weapon"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetMapChsName(System.String)">
+            <summary>
+                获取地图对应中文名称
+            </summary>
+            <param name="map"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetGameMode(System.String)">
+            <summary>
+                获取当前地图游戏模式
+            </summary>
+            <param name="mode"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetSquadNameById(System.Int32)">
+            <summary>
+                获取小队的中文名称
+            </summary>
+            <param name="squadId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetTeam1Name(System.String)">
+            <summary>
+                获取队伍1阵营中文名称
+            </summary>
+            <param name="map"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetTeam2Name(System.String)">
+            <summary>
+                获取队伍2阵营中文名称
+            </summary>
+            <param name="map"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetPlayerKitName(System.String)">
+            <summary>
+                获取玩家当前兵种名称
+            </summary>
+            <param name="kit"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetClientStateName(System.Int32)">
+            <summary>
+                获取战地1客户端状态
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.ClientUtil.GetGameStatusName(System.Int32)">
+            <summary>
+                获取战地1游戏状态
+            </summary>
+            <param name="state"></param>
+            <returns></returns>
+        </member>
+        <member name="P:BF1ClientAPI.Utils.CoreUtil.Name_MainApp">
+            <summary>
+                主程序名称
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Utils.CoreUtil.App_Version">
+            <summary>
+                主程序版本
+            </summary>
+        </member>
+        <member name="P:BF1ClientAPI.Utils.CoreUtil.File_MainApp">
+            <summary>
+                获取当前运行文件完整路径
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.CoreUtil.#cctor">
+            <summary>
+                静态构造函数
+            </summary>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.CoreUtil.GetNowTimestamp">
+            <summary>
+                返回当前时间戳
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.CoreUtil.IsStartupRegistryKeyExists(System.String,System.String)">
+            <summary>
+                检查是否已存在相同的启动项
+            </summary>
+            <param name="appName"></param>
+            <param name="appPath"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.CoreUtil.AddStartupRegistryKey(System.String,System.String)">
+            <summary>
+                添加开机自启动
+            </summary>
+            <param name="appName"></param>
+            <param name="appPath"></param>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.GameUtil.IsSpectator(System.Byte)">
+            <summary>
+                判断是否为观战玩家
+            </summary>
+            <param name="flag"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.GameUtil.IsInGame">
+            <summary>
+                判断是否进入游戏
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.GameUtil.GetMMSSStrBySecond(System.Single)">
+            <summary>
+                转为mm:ss字符串格式，传入时间为秒
+            </summary>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.GameUtil.FixVehicleKits(System.String,System.String)">
+            <summary>
+                修复载具分类
+            </summary>
+            <param name="name1"></param>
+            <param name="name2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.PlayerUtil.GetPlayerVehicle(System.String,System.String)">
+            <summary>
+                获取不同载具槽详情数据
+            </summary>
+            <param name="vehicle"></param>
+            <param name="kind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.PlayerUtil.GetPlayerVehicle2(System.String,System.String)">
+            <summary>
+                获取不同载具槽详情数据
+            </summary>
+            <param name="vehicle"></param>
+            <param name="kind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BF1ClientAPI.Utils.PlayerUtil.GetPlayerWeapon(System.String,System.String)">
+            <summary>
+                获取不同武器槽详情数据
+            </summary>
+            <param name="weapon"></param>
+            <param name="kind"></param>
+            <returns></returns>
+        </member>
+        <member name="T:ApplicationConfiguration">
+            <summary>
+                Bootstrap the application configuration.
+            </summary>
+        </member>
+        <member name="M:ApplicationConfiguration.Initialize">
+            <summary>
+                Bootstrap the application as follows:
+                <code>
+                    global::System.Windows.Forms.Application.EnableVisualStyles();
+                    global::System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
+                    global::System.Windows.Forms.Application.SetHighDpiMode(HighDpiMode.SystemAware);
+                </code>
+            </summary>
+        </member>
+    </members>
+</doc>
